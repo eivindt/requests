@@ -12,12 +12,12 @@ import io
 import os
 import re
 import socket
+import stat
 import struct
 import sys
 import tempfile
 import warnings
 import zipfile
-import stat
 from collections import OrderedDict
 
 from urllib3.util import make_headers, parse_url

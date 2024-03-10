@@ -149,13 +149,13 @@ class TestSuperLen:
 
     def test_super_len_with_no_matches(self):
         """Ensure that objects without any length methods default to None"""
-        assert super_len(object()) == None
+        assert super_len(object()) is None
 
     def test_super_len_with_pipe(self):
         """Ensure that ojects with a fileno that are not regular files default to length None"""
         r, w = os.pipe()
         rf = os.fdopen(r, "rb")
-        assert super_len(rf) == None
+        assert super_len(rf) is None
 
 
 class TestToKeyValList:
