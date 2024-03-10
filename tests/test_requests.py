@@ -48,7 +48,7 @@ from requests.hooks import default_hooks
 from requests.models import PreparedRequest, urlencode
 from requests.sessions import SessionRedirectMixin
 from requests.structures import CaseInsensitiveDict
-from requests.utils import superlen
+from requests.utils import super_len
 
 from . import SNIMissingWarning
 from .compat import StringIO
@@ -144,7 +144,7 @@ class TestRequests:
         pipe_wf = os.fdopen(pipe_w, "wb")
         pipe_wf.write(b"hello")
 
-        print("superlen(pipe_rf) = %s" % superlen(pipe_rf))
+        print("super_len(pipe_rf) = %s" % super_len(pipe_rf))
         req = requests.Request(method, httpbin(method.lower()), data=pipe_rf).prepare()
         assert req.headers.get("Content-Length") is None
         assert req.headers["Transfer-Encoding"] == "chunked"
