@@ -51,7 +51,7 @@ from requests.structures import CaseInsensitiveDict
 
 from . import SNIMissingWarning
 from .compat import StringIO
-from .utils import override_environ
+from .utils import override_environ, superlen
 
 # Requests to this URL should always fail with a connection timeout (nothing
 # listening on that port)
@@ -142,6 +142,8 @@ class TestRequests:
         pipe_rf = os.fdopen(pipe_r, "rb")
         pipe_wf = os.fdopen(pipe_w, "wb")
         pipe_wf.write(b"hello")
+
+        print("superlen(pipe_rf) = %s" % superlen(pipe_rf))
         req = requests.Request(method, httpbin(method.lower()), data=pipe_rf).prepare()
         assert req.headers.get("Content-Length") is None
         assert req.headers["Transfer-Encoding"] == "chunked"
