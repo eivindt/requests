@@ -48,10 +48,11 @@ from requests.hooks import default_hooks
 from requests.models import PreparedRequest, urlencode
 from requests.sessions import SessionRedirectMixin
 from requests.structures import CaseInsensitiveDict
+from requests.utils import superlen
 
 from . import SNIMissingWarning
 from .compat import StringIO
-from .utils import override_environ, superlen
+from .utils import override_environ
 
 # Requests to this URL should always fail with a connection timeout (nothing
 # listening on that port)
