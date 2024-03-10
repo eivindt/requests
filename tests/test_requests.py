@@ -2151,8 +2151,8 @@ class TestRequests:
         assert resp.raw.closed
 
     def test_empty_stream_with_auth_does_not_set_transfer_encoding_header(
-            self, httpbin
-        ):
+        self, httpbin
+    ):
         """Ensure that a byte stream with size 0 will not set both a Content-Length
         and Transfer-Encoding header.
         """
